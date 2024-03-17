@@ -1,6 +1,18 @@
 class Game:
     def __init__(self, title):
         self.title = title
+    
+    @property
+    def title(self):
+        return self._title
+    
+    @title.setter
+    def title(self, title):
+        if isinstance(title, str) and len(title) and (hasattr(self, 'title') == False):
+                self._title = title
+        else:
+            raise ValueError("Title must be a non-empty string and cannot be reassigned")
+
 
     def results(self):
         pass
